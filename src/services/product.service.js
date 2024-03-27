@@ -57,11 +57,8 @@ const createProduct = async (reqData) => {
 };
 
 const deleteProduct = async (productId) => {
-  const product = await findProductById(productId);
-
-  await product.findByIdAndDelete(productId);
-  return "Product deleted successfully";
-};
+  return await Product.findByIdAndDelete(productId);
+};      
 
 const updateProduct = async (productId, reqData) => {
   return await Product.findByIdAndUpdate(productId, reqData);
